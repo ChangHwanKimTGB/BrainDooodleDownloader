@@ -1,0 +1,4 @@
+repository "AppDownloader@Cocoppang@cloud"
+  path "/"
+    br "/main"
+    co "/main"

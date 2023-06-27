@@ -1,0 +1,20 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.cocoppang.braindooodledownloader.dooodle",
+  "variantName": "brain_dooodle_downloader",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 1,
+      "versionName": "1.0",
+      "outputFile": "brain_dooodle_downloader.apk"
+    }
+  ],
+  "elementType": "File"
+}

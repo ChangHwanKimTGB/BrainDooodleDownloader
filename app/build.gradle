@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.cocoppang.braindooodledownloader"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+        buildConfigField "String", "DOWNLOAD_URL", '"https://qysjlqtsjgku10394954.cdn.ntruss.com/BrainDooodle.apk"'
+    }
+
+    buildTypes
+    {
+        applicationVariants.all
+        {
+            variant -> variant.outputs.all
+            {
+                def buildType = variant.buildType.name
+                outputFileName = "${buildType}.apk"
+            }
+        }
+
+        brain_dooodle_downloader
+        {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix ".dooodle"
+            manifestPlaceholders.put( "appName", "두들다운로더" );
+
+            buildConfigField "String", "DOWNLOAD_URL", '"https://qysjlqtsjgku10394954.cdn.ntruss.com/BrainDooodle.apk"'
+            buildConfigField "String", "TARGET_APP_DOMAIN", '"com.educotton.braindooodle.v2.p2"'
+            buildConfigField "String", "DOWNLOADED_APP_NAME", '"Braindooodle.apk"'
+        }
+
+        brain_contest_single_downloader
+        {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix ".contest"
+            manifestPlaceholders.put( "appName", "전국두뇌자랑다운로더" );
+
+            buildConfigField "String", "DOWNLOAD_URL", '"https://qysjlqtsjgku10394954.cdn.ntruss.com/BrainContest_Single.apk"'
+            buildConfigField "String", "TARGET_APP_DOMAIN", '"com.CocoPpang.BrainDooodleSingle"'
+            buildConfigField "String", "DOWNLOADED_APP_NAME", '"BrainContestSingle.apk"'
+        }
+
+        brain_contest_multi_downloader
+        {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix ".contest"
+            manifestPlaceholders.put( "appName", "다함께두뇌자랑다운로더" );
+
+            buildConfigField "String", "DOWNLOAD_URL", '"https://qysjlqtsjgku10394954.cdn.ntruss.com/BrainContest_Multi.apk"'
+            buildConfigField "String", "TARGET_APP_DOMAIN", '"com.CocoPpang.BrainDooodleMulti"'
+            buildConfigField "String", "DOWNLOADED_APP_NAME", '"BrainContestMulti.apk"'
+        }
+
+        brain_contest_nurshinghome_downloader
+        {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            applicationIdSuffix ".contest"
+            manifestPlaceholders.put( "appName", "두뇌자랑요양원다운로더" );
+
+            buildConfigField "String", "DOWNLOAD_URL", '"https://kr.object.ncloudstorage.com/cocoppang-cdn-bucket/BrainContest_NurshingHome.apk"'
+            buildConfigField "String", "TARGET_APP_DOMAIN", '"com.CocoPpang.BrainContestNurshingHome"'
+            buildConfigField "String", "DOWNLOADED_APP_NAME", '"BrainContest_NurshingHome.apk"'
+        }
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+}
